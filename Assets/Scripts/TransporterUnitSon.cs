@@ -5,9 +5,9 @@ using UnityEngine;
 /// <summary>
 /// Subclass of Unit that will transport resource from a Resource Pile back to Base.
 /// </summary>
-public class TransporterUnit : Unit
+public class TransporterUnitSon : Unit
 {
-    private int MaxAmountTransported = 2;
+    private int MaxAmountTransported = 1; // encapsulation of the MaxAmountTransported variable 
 
     private Building m_CurrentTransportTarget;
     private Building.InventoryEntry m_Transporting = new Building.InventoryEntry();
@@ -18,7 +18,7 @@ public class TransporterUnit : Unit
         base.GoTo(position);
         m_CurrentTransportTarget = null;
     }
-    
+
     protected override void BuildingInRange()
     {
         if (m_Target == Base.Instance)
@@ -43,7 +43,7 @@ public class TransporterUnit : Unit
             }
         }
     }
-    
+
     //Override all the UI function to give a new name and display what it is currently transporting
     public override string GetName()
     {
